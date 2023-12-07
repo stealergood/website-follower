@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Hero from "./hero";
 import Navbar from "./navbar";
+import Footer from "./footer";
 
 export default function Home() {
   // use theme from local storage if available or set light theme
@@ -30,6 +31,7 @@ export default function Home() {
     <div>
       <Navbar theme={theme} handleToggle={handleToggle}/>
       <Hero theme={theme} handleToggle={handleToggle}/>
+      <Footer/>
     </div>
   );
 }
