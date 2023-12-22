@@ -3,6 +3,7 @@ import { Disclosure } from "@headlessui/react";
 import PropTypes from "prop-types";
 import { Bars3Icon,  XMarkIcon } from "@heroicons/react/24/outline";
 import Whatsapp from "../svg/whatsapp";
+import Logo from "../svg/logo";
 
 
 export default function Navbar({theme, handleToggle}) {
@@ -27,8 +28,10 @@ export default function Navbar({theme, handleToggle}) {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-shrink-0 items-center">
-                <img
+              <div className="flex justify-between flex-shrink-0 items-center w-40 md:w-52">
+                <Logo fill={`${theme === 'light' ? '#7B66FF' : '#5FBDFF'}`} className="w-14 h-14 md:w-16 md:h-16"/>
+                <h1 className={`${theme === 'light' ? 'text-navlight' : 'text-navdark'} hidden md:flex font-sans font-bold md:text-2xl`}>The Sosmed</h1>
+                {/* <img
                   className="block h-8 w-auto lg:hidden"
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                   alt="Your Company"
@@ -37,12 +40,11 @@ export default function Navbar({theme, handleToggle}) {
                   className="hidden h-8 w-auto lg:block"
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                   alt="Your Company"
-                />
+                /> */}
               </div>
             </div>
             <div className="flex h-16 justify-end space-x-16 w-full">
               <div className="hidden md:ml-6 md:flex md:space-x-8">
-                {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                 <a
                   href="#"
                   className={`inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium ${theme === 'light' ? 'text-gray-500': 'text-white'} hover:border-gray-300 hover:text-gray-700`}

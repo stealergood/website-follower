@@ -9,6 +9,12 @@ export default {
       colors: {
         "navlight": "#7B66FF",
         "navdark": "#5FBDFF"
+      },
+      width: {
+        "200": "60rem",
+      },
+      blur: {
+        "vsm": "1px",
       }
     },
   },

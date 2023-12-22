@@ -5,6 +5,9 @@ import Twitter from "../svg/twitter";
 import Facebook from "../svg/facebook";
 import Tiktok from "../svg/tiktok";
 import Youtube from "../svg/youtube";
+// import HeroLogo from "../utils/hero.png";
+
+// import Sosmed from "../svg/sosmedbg";
 
 
 export default function Hero({ theme }) {
@@ -32,19 +35,12 @@ export default function Hero({ theme }) {
             <Youtube className={`${theme === 'light' ? 'fill-navlight group-hover/item:fill-white':'fill-navdark group-hover/item:fill-gray-700'} md:w-16 md:h-16 h-10 w-10`}/>
           </div>
         </div>
-        <div className={`${theme === 'light' ? 'bg-white':'bg-white'} w-full h-full flex`}>
-          {/* <div className="w-1/2 h-96 bg-slate-200">
-            <div className="flex justify-start p-10">
-              <div>
-                <h6>JUDUL</h6>
-              </div>
-            </div>
-            <div>deskripsi</div>
+        {/* <div className={`${theme === 'light' ? 'bg-white':'bg-gray-800'} w-full h-full flex relative justify-center`}>
+          <img src={HeroLogo} className="w-200 rounded-lg blur-vsm bg-gray-200" />
+          <div className="absolute mt-36 backdrop-blur-sm  h-fit">
+            <p className="text-8xl font-bold text-gray-700">Jasa Followers</p>
           </div>
-          <div className="w-1/2 bg-slate-300">
-            sama aja
-          </div> */}
-        </div>
+        </div> */}
       </div>
     </div>
   );
