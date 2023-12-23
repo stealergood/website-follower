@@ -1,7 +1,8 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure } from "@headlessui/react";
-import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { Bars3Icon,  XMarkIcon } from "@heroicons/react/24/outline";
+import PropTypes from "prop-types";
 import Whatsapp from "../svg/whatsapp";
 import Logo from "../svg/logo";
 
@@ -28,20 +29,10 @@ export default function Navbar({theme, handleToggle}) {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex justify-between flex-shrink-0 items-center w-40 md:w-52">
+              <Link to={"/"} className="flex justify-between flex-shrink-0 items-center w-40 md:w-52">
                 <Logo fill={`${theme === 'light' ? '#7B66FF' : '#5FBDFF'}`} className="w-14 h-14 md:w-16 md:h-16"/>
                 <h1 className={`${theme === 'light' ? 'text-navlight' : 'text-navdark'} hidden md:flex font-sans font-bold md:text-2xl`}>The Sosmed</h1>
-                {/* <img
-                  className="block h-8 w-auto lg:hidden"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt="Your Company"
-                />
-                <img
-                  className="hidden h-8 w-auto lg:block"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt="Your Company"
-                /> */}
-              </div>
+              </Link>
             </div>
             <div className="flex h-16 justify-end space-x-16 w-full">
               <div className="hidden md:ml-6 md:flex md:space-x-8">

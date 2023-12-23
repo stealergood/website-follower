@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-// import Home from './page/home';
+import Home from './page/home';
 import Instagram from './page/section/instagram';
+import Tiktok from './page/section/tiktok';
+import Facebook from './page/section/facebook';
+import Twitter from './page/section/twitter';
+import Youtube from './page/section/youtube';
 
 
 function App() {
@@ -29,10 +33,16 @@ function App() {
   }, [theme]);
 
   return (
-    <>
-      {/* <Home theme={theme} handleToggle={handleToggle}/> */}
-      <Instagram theme={theme} handleToggle={handleToggle}/>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home theme={theme} handleToggle={handleToggle} />} />
+        <Route path="/instagram" element={<Instagram theme={theme} handleToggle={handleToggle} />} />
+        <Route path="/twitter" element={<Twitter theme={theme} handleToggle={handleToggle} />} />
+        <Route path="/facebook" element={<Facebook theme={theme} handleToggle={handleToggle} />} />
+        <Route path="/tiktok" element={<Tiktok theme={theme} handleToggle={handleToggle} />} />
+        <Route path="/youtube" element={<Youtube theme={theme} handleToggle={handleToggle} />} />
+      </Routes>
+    </Router>
   )
 }
 

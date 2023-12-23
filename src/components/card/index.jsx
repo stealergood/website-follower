@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import PropTypes from "prop-types";
-import Ig from '../svg/instagram'
 
 const formatRupiah = (number) => {
   const formatter = new Intl.NumberFormat('id-ID', {
@@ -10,102 +9,18 @@ const formatRupiah = (number) => {
   return formatter.format(number);
 };
 
-export default function Card({theme}) {
-  const [switchCard, setSwitchCard] = useState("followers");
-  const [active, setActive] = useState("followers");
+export default function Card({theme, categories, handleSwitchCard, switchCard, active}) {
 
   Card.propTypes = {
     theme: PropTypes.string.isRequired,
+    categories: PropTypes.object.isRequired,
+    handleSwitchCard: PropTypes.func.isRequired,
+    switchCard: PropTypes.string.isRequired,
+    active: PropTypes.string.isRequired,
   };
 
-  const categories = {
-    "followers": [
-      {
-        "name": "Followers Instagram",
-        "value": 100,
-        "price": 10000,
-        "icon": <Ig className={`${theme === 'light' ? 'fill-navlight' : 'fill-navdark'} w-16 h-16`}/>
-      },
-      {
-        "name": "Followers Instagram",
-        "value": 300,
-        "price": 10000,
-        "icon": <Ig className={`${theme === 'light' ? 'fill-navlight' : 'fill-navdark'} w-16 h-16`}/>
-      },
-      {
-        "name": "Followers Instagram",
-        "value": 500,
-        "price": 10000,
-        "icon": <Ig className={`${theme === 'light' ? 'fill-navlight' : 'fill-navdark'} w-16 h-16`}/>
-      },
-      {
-        "name": "Followers Instagram",
-        "value": 1000,
-        "price": 10000,
-        "icon": <Ig className={`${theme === 'light' ? 'fill-navlight' : 'fill-navdark'} w-16 h-16`}/>
-      },
-    ],
-    "likes": [
-      {
-        "name": "Likes Instagram",
-        "value": 100,
-        "price": 10000,
-        "icon": <Ig className={`${theme === 'light' ? 'fill-navlight' : 'fill-navdark'} w-16 h-16`}/>
-      },
-      {
-        "name": "Likes Instagram",
-        "value": 300,
-        "price": 10000,
-        "icon": <Ig className={`${theme === 'light' ? 'fill-navlight' : 'fill-navdark'} w-16 h-16`}/>
-      },
-      {
-        "name": "Likes Instagram",
-        "value": 500,
-        "price": 10000,
-        "icon": <Ig className={`${theme === 'light' ? 'fill-navlight' : 'fill-navdark'} w-16 h-16`}/>
-      },
-      {
-        "name": "Likes Instagram",
-        "value":1000,
-        "price": 10000,
-        "icon": <Ig className={`${theme === 'light' ? 'fill-navlight' : 'fill-navdark'} w-16 h-16`}/>
-      },
-    ],
-    "views": [
-      {
-        "name": "Views Instagram",
-        "value": 1000,
-        "price": 10000,
-        "icon": <Ig className={`${theme === 'light' ? 'fill-navlight' : 'fill-navdark'} w-16 h-16`}/>
-      },
-      {
-        "name": "Views Instagram",
-        "value": 3000,
-        "price": 10000,
-        "icon": <Ig className={`${theme === 'light' ? 'fill-navlight' : 'fill-navdark'} w-16 h-16`}/>
-      },
-      {
-        "name": "Views Instagram",
-        "value": 5000,
-        "price": 10000,
-        "icon": <Ig className={`${theme === 'light' ? 'fill-navlight' : 'fill-navdark'} w-16 h-16`}/>
-      },
-      {
-        "name": "Views Instagram",
-        "value": 10000,
-        "price": 10000,
-        "icon": <Ig className={`${theme === 'light' ? 'fill-navlight' : 'fill-navdark'} w-16 h-16`}/>
-      },
-    ],
-  }
-
-  const handleSwitchCard = (category) => {
-    setSwitchCard(category);
-    setActive(category);
-  }
-
   return (
-    <div className="w-full h-fit md:h-screen p-3 flex flex-col items-center gap-5">
+    <div className="w-full h-fit p-3 flex flex-col items-center gap-5">
       <div className="flex justify-center items-end gap-1 w-full h-20">
         <button onClick={() => handleSwitchCard("followers")} className={`w-28 h-7 flex items-center justify-center font-medium border ${active === 'followers' ? `bg-${theme === 'light' ? 'navlight' : 'navdark'} text-white border-none` : 'bg-white text-gray-600'} hover:border-none hover:bg-${theme === 'light' ? 'navlight' : 'navdark'} hover:text-white focus:bg-${theme === 'light' ? 'navlight' : 'navdark'} focus:text-white focus:outline-none  border-slate-400 text-gray-600 rounded-lg`}>Followers</button>
         <button onClick={() => handleSwitchCard("likes")} className={`w-28 h-7 flex items-center justify-center font-medium border ${active === 'likes' ? `bg-${theme === 'light' ? 'navlight' : 'navdark'} text-white border-none` : 'bg-white text-gray-600'} hover:border-none hover:bg-${theme === 'light' ? 'navlight' : 'navdark'} hover:text-white focus:bg-${theme === 'light' ? 'navlight' : 'navdark'} focus:text-white focus:outline-none  border-slate-400 text-gray-600 rounded-lg`}>Likes</button>
