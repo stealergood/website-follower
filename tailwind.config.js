@@ -8,10 +8,13 @@ export default {
     extend: {
       colors: {
         "navlight": "#7B66FF",
-        "navdark": "#5FBDFF"
+        "navdark": "#5FBDFF",
       },
       width: {
         "200": "60rem",
+      },
+      height: {
+        "86": "21rem"
       },
       blur: {
         "vsm": "1px",

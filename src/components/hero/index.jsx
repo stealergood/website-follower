@@ -17,20 +17,20 @@ export default function Hero({ theme }) {
   return (
     <div className="w-full h-screen">
       <div className="grid auto-rows-auto transition-all">
-        <div className={`${theme === 'light' ? 'bg-white':'bg-gray-800'} flex md:items-center md:flex-row w-full justify-around md:justify-center md:space-x-10 p-8 `}>
-          <Link to={"/instagram"} className={`${theme === 'light' ? 'bg-slate-100 hover:bg-navlight':'bg-gray-700 hover:bg-navdark'} h-16 w-16 md:w-28 md:h-28 md:mb-16 rounded-xl flex justify-center items-center transition-colors duration-700 ease-in-out cursor-pointer group/item`}>
+        <div className={`${theme === 'light' ? 'bg-slate-100':'bg-gray-800'} flex md:items-center md:flex-row w-full justify-around md:justify-center md:space-x-10 p-8 `}>
+          <Link to={"/instagram"} className={`${theme === 'light' ? 'bg-white hover:bg-navlight':'bg-gray-700 hover:bg-navdark'} h-16 w-16 md:w-28 md:h-28 md:mb-16 rounded-xl flex justify-center items-center transition-colors duration-700 ease-in-out cursor-pointer group/item`}>
             <Instagram className={`${theme === 'light' ? 'fill-navlight group-hover/item:fill-white':'fill-navdark group-hover/item:fill-gray-700'} md:w-16 md:h-16 h-10 w-10`}/>
           </Link>
-          <Link to={"/twitter"} className={`${theme === 'light' ? 'bg-slate-100 hover:bg-navlight':'bg-gray-700 hover:bg-navdark'} h-16 w-16 md:w-28 md:h-28 md:mb-16 rounded-xl flex justify-center items-center transition-colors duration-700 ease-in-out cursor-pointer group/item`}>
+          <Link to={"/twitter"} className={`${theme === 'light' ? 'bg-white hover:bg-navlight':'bg-gray-700 hover:bg-navdark'} h-16 w-16 md:w-28 md:h-28 md:mb-16 rounded-xl flex justify-center items-center transition-colors duration-700 ease-in-out cursor-pointer group/item`}>
             <Twitter className={`${theme === 'light' ? 'fill-navlight group-hover/item:fill-white':'fill-navdark group-hover/item:fill-gray-700'} md:w-16 md:h-16 h-10 w-10`}/>
           </Link>
-          <Link to={"/facebook"} className={`${theme === 'light' ? 'bg-slate-100 hover:bg-navlight':'bg-gray-700 hover:bg-navdark'} h-16 w-16 md:w-28 md:h-28 md:mb-16 rounded-xl flex justify-center items-center transition-colors duration-700 ease-in-out cursor-pointer group/item`}>
+          <Link to={"/facebook"} className={`${theme === 'light' ? 'bg-white hover:bg-navlight':'bg-gray-700 hover:bg-navdark'} h-16 w-16 md:w-28 md:h-28 md:mb-16 rounded-xl flex justify-center items-center transition-colors duration-700 ease-in-out cursor-pointer group/item`}>
             <Facebook className={`${theme === 'light' ? 'fill-navlight group-hover/item:fill-white':'fill-navdark group-hover/item:fill-gray-700'} md:w-16 md:h-16 h-10 w-10`}/>
           </Link>
-          <Link to={"/tiktok"} className={`${theme === 'light' ? 'bg-slate-100 hover:bg-navlight':'bg-gray-700 hover:bg-navdark'} h-16 w-16 md:w-28 md:h-28 md:mb-16 rounded-xl flex justify-center items-center transition-colors duration-700 ease-in-out cursor-pointer group/item`}>
+          <Link to={"/tiktok"} className={`${theme === 'light' ? 'bg-white hover:bg-navlight':'bg-gray-700 hover:bg-navdark'} h-16 w-16 md:w-28 md:h-28 md:mb-16 rounded-xl flex justify-center items-center transition-colors duration-700 ease-in-out cursor-pointer group/item`}>
             <Tiktok className={`${theme === 'light' ? 'fill-navlight group-hover/item:fill-white':'fill-navdark group-hover/item:fill-gray-700'} md:w-16 md:h-16 h-10 w-10`}/>
           </Link>
-          <Link to={"/youtube"} className={`${theme === 'light' ? 'bg-slate-100 hover:bg-navlight':'bg-gray-700 hover:bg-navdark'} h-16 w-16 md:w-28 md:h-28 md:mb-16 rounded-xl flex justify-center items-center transition-colors duration-700 ease-in-out cursor-pointer group/item`}>
+          <Link to={"/youtube"} className={`${theme === 'light' ? 'bg-white hover:bg-navlight':'bg-gray-700 hover:bg-navdark'} h-16 w-16 md:w-28 md:h-28 md:mb-16 rounded-xl flex justify-center items-center transition-colors duration-700 ease-in-out cursor-pointer group/item`}>
             <Youtube className={`${theme === 'light' ? 'fill-navlight group-hover/item:fill-white':'fill-navdark group-hover/item:fill-gray-700'} md:w-16 md:h-16 h-10 w-10`}/>
           </Link>
         </div>

@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
 import Card from "../../components/card";
-import Fb from '../../components/svg/facebook'
+import Form from "../../components/form";
+import Fb from '../../components/svg/facebook';
 
 
 export default function Facebook({theme, handleToggle}) {
@@ -14,6 +15,7 @@ export default function Facebook({theme, handleToggle}) {
 
   const [switchCard, setSwitchCard] = useState("followers");
   const [active, setActive] = useState("followers");
+  const [buttonBuy, setButtonBuy] = useState({});
 
   const categories = {
     "followers": [
@@ -41,10 +43,15 @@ export default function Facebook({theme, handleToggle}) {
     setActive(category);
   }
   
+  const handleBuy = (category) => {
+    setButtonBuy(category);
+  }
+  
   return (
-    <div className={`${theme === 'light' ? 'bg-white' : 'bg-gray-800'}`}>
+    <div className={`${theme === 'light' ? 'bg-slate-100' : 'bg-gray-800'}`}>
       <Navbar theme={theme} handleToggle={handleToggle}/>
-      <Card theme={theme} categories={categories} handleSwitchCard={handleSwitchCard} active={active} switchCard={switchCard}/>
+      <Card theme={theme} categories={categories} handleSwitchCard={handleSwitchCard} active={active} switchCard={switchCard} handleBuy={handleBuy}/>
+      <Form theme={theme} buttonBuy={buttonBuy}/>
       <Footer theme={theme}/>
     </div>
   );

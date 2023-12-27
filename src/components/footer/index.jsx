@@ -7,7 +7,7 @@ export default function Footer({theme}) {
     theme: PropTypes.string.isRequired,
   };
   return (
-    <div className={`${theme === 'light' ? 'bg-white' : 'bg-gray-800'} w-full h-fit`}>
+    <div className={`${theme === 'light' ? 'bg-slate-100' : 'bg-gray-800'} w-full h-fit`}>
         <div className="grid md:flex justify-around w-full h-full p-5">
 
           <div className="flex flex-col justify-center items-center w-full">

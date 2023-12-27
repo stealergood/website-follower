@@ -11,7 +11,7 @@ export default function Home({theme, handleToggle}) {
   };
   
   return (
-    <div className={`${theme === 'light' ? 'bg-white' : 'bg-gray-800'}`}>
+    <div className={`${theme === 'light' ? 'bg-slate-100' : 'bg-gray-800'}`}>
       <Navbar theme={theme} handleToggle={handleToggle}/>
       <Hero theme={theme}/>
       <Footer theme={theme}/>

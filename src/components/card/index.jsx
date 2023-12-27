@@ -9,7 +9,7 @@ const formatRupiah = (number) => {
   return formatter.format(number);
 };
 
-export default function Card({theme, categories, handleSwitchCard, switchCard, active}) {
+export default function Card({theme, categories, handleSwitchCard, switchCard, active, handleBuy}) {
 
   Card.propTypes = {
     theme: PropTypes.string.isRequired,
@@ -17,10 +17,11 @@ export default function Card({theme, categories, handleSwitchCard, switchCard, a
     handleSwitchCard: PropTypes.func.isRequired,
     switchCard: PropTypes.string.isRequired,
     active: PropTypes.string.isRequired,
+    handleBuy: PropTypes.func.isRequired
   };
 
   return (
-    <div className="w-full h-fit p-3 flex flex-col items-center gap-5">
+    <div className="w-full min-h-screen p-3 flex flex-col items-center gap-5">
       <div className="flex justify-center items-end gap-1 w-full h-20">
         <button onClick={() => handleSwitchCard("followers")} className={`w-28 h-7 flex items-center justify-center font-medium border ${active === 'followers' ? `bg-${theme === 'light' ? 'navlight' : 'navdark'} text-white border-none` : 'bg-white text-gray-600'} hover:border-none hover:bg-${theme === 'light' ? 'navlight' : 'navdark'} hover:text-white focus:bg-${theme === 'light' ? 'navlight' : 'navdark'} focus:text-white focus:outline-none  border-slate-400 text-gray-600 rounded-lg`}>Followers</button>
         <button onClick={() => handleSwitchCard("likes")} className={`w-28 h-7 flex items-center justify-center font-medium border ${active === 'likes' ? `bg-${theme === 'light' ? 'navlight' : 'navdark'} text-white border-none` : 'bg-white text-gray-600'} hover:border-none hover:bg-${theme === 'light' ? 'navlight' : 'navdark'} hover:text-white focus:bg-${theme === 'light' ? 'navlight' : 'navdark'} focus:text-white focus:outline-none  border-slate-400 text-gray-600 rounded-lg`}>Likes</button>
@@ -66,7 +67,7 @@ export default function Card({theme, categories, handleSwitchCard, switchCard, a
                   </ul>
                   <div className="text-2xl text-gray-500 font-medium">{formatRupiah(category.price)}</div>
                   <div className="w-full h-full flex items-center justify-center">
-                    <button className={`w-1/2 h-10 ${theme === 'light' ? 'bg-navlight' : 'bg-navdark'} rounded-xl text-white`}>Beli</button>
+                    <button onClick={() => handleBuy({name: category.value + " " + category.name, price: category.price})} className={`w-1/2 h-10 ${theme === 'light' ? 'bg-navlight' : 'bg-navdark'} rounded-xl text-white`}>Beli</button>
                   </div>
                 </div>
               </div>

@@ -13,7 +13,7 @@ export default function Navbar({theme, handleToggle}) {
     handleToggle: PropTypes.func.isRequired,
   };
   return (
-    <Disclosure as="nav" className={`${theme === 'light' ? 'bg-white' : 'bg-gray-800'} shadow`}>
+    <Disclosure as="nav" className={`${theme === 'light' ? 'bg-slate-100' : 'bg-gray-800'} shadow`}>
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-between">
