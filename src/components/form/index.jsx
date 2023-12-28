@@ -56,7 +56,7 @@ export default function Form({theme, buttonBuy}) {
       qty: 1
     }
 
-    const payload = await fetch("http://localhost:5005/api/v1/payment", {
+    const payload = await fetch("https://backend-follower-f8a6bb63a58e.herokuapp.com/api/v1/payment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -7,6 +7,7 @@ import Tiktok from './page/section/tiktok';
 import Facebook from './page/section/facebook';
 import Twitter from './page/section/twitter';
 import Youtube from './page/section/youtube';
+import OrderStatus from './page/orderstatus';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/facebook" element={<Facebook theme={theme} handleToggle={handleToggle} />} />
         <Route path="/tiktok" element={<Tiktok theme={theme} handleToggle={handleToggle} />} />
         <Route path="/youtube" element={<Youtube theme={theme} handleToggle={handleToggle} />} />
+        <Route path="/checkorder" element={<OrderStatus theme={theme} handleToggle={handleToggle} />} />
       </Routes>
     </Router>
   )
