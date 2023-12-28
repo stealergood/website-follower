@@ -47,8 +47,28 @@ export default function Form({theme, buttonBuy}) {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(JSON.stringify(data));
+  const onSubmit = async () => {
+    const parameters = {
+      serviceid: `ORDER-${buttonBuy.name}`,
+      order_id: `TRX-${Date.now()}`,
+      name: buttonBuy.name,
+      price: buttonBuy.price,
+      qty: 1
+    }
+
+    const payload = await fetch("http://localhost:5005/api/v1/payment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(parameters)
+    });
+    const response = await payload.json();
+    const { token, redirect_url } = response.result;
+    
+    return (
+      window.location.href = redirect_url
+    )
   };
 
 
@@ -121,7 +141,6 @@ export default function Form({theme, buttonBuy}) {
           >
             CHECKOUT
           </button>
-
         </div>
       </div>
     </div>
