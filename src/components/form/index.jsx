@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import PropTypes from "prop-types";
+import Cookies from 'js-cookie';
 // import PhoneInput from "react-phone-number-input";
 
 const formatRupiah = (number) => {
@@ -39,6 +39,7 @@ const total = (number, fee) => {
   return formatter.format(number + fee);
 };
 
+
 export default function Form({theme, buttonBuy}) {
   Form.propTypes = {
     theme: PropTypes.string.isRequired,
@@ -48,28 +49,38 @@ export default function Form({theme, buttonBuy}) {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async () => {
+    const order_id = `TRX-${Date.now()}`;
+  
     const parameters = {
       serviceid: `ORDER-${buttonBuy.name}`,
-      order_id: `TRX-${Date.now()}`,
+      order_id: order_id,
       name: buttonBuy.name,
       price: buttonBuy.price,
       qty: 1
+    };
+  
+    try {
+      const payload = await fetch("https://backend-follower-f8a6bb63a58e.herokuapp.com/api/v1/payment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(parameters)
+      });
+  
+      const response = await payload.json();
+      const { token, redirect_url } = response.result;
+  
+      Cookies.set('order_id', order_id);
+  
+      // Open the redirect_url in a new tab
+      window.open(redirect_url, '_blank', { expires: 1 });
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+      // Handle the error appropriately
     }
-
-    const payload = await fetch("https://backend-follower-f8a6bb63a58e.herokuapp.com/api/v1/payment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(parameters)
-    });
-    const response = await payload.json();
-    const { token, redirect_url } = response.result;
-    
-    return (
-      window.location.href = redirect_url
-    )
   };
+  
 
 
   return (
