@@ -67,7 +67,7 @@ export default function Card({theme, categories, handleSwitchCard, switchCard, a
                   </ul>
                   <div className="text-2xl text-gray-500 font-medium">{formatRupiah(category.price)}</div>
                   <div className="w-full h-full flex items-center justify-center">
-                    <button onClick={() => handleBuy({name: category.value + " " + category.name, price: category.price})} className={`w-1/2 h-10 ${theme === 'light' ? 'bg-navlight' : 'bg-navdark'} rounded-xl text-white`}>Beli</button>
+                    <button onClick={() => handleBuy({name: category.value + " " + category.name, price: category.price})} className={`w-1/2 h-10 ${theme === 'light' ? 'bg-navlight' : 'bg-navdark'} rounded-xl text-white hover:bg-opacity-75`}>Beli</button>
                   </div>
                 </div>
               </div>

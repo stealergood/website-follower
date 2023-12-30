@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import PropTypes from "prop-types";
 import Navbar from "../components/navbar";
@@ -65,8 +65,14 @@ export default function PaymentStatus({ theme, handleToggle }) {
 
   // Handle other cases or loading state
   return (
-    <div>
-      Loading...
+    <div className={`${theme === "light" ? "bg-slate-100" : "bg-gray-800"}`}>
+    <Navbar theme={theme} handleToggle={handleToggle} />
+    <div className={`w-full h-screen ${theme === "light" ? "bg-slate-200" : "bg-gray-600"} flex justify-center items-center`}>
+      <div className="w-96 h-96 shadow-lg rounded-xl bg-white flex-col flex justify-center items-center">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
     </div>
+    <Footer theme={theme} />
+  </div>
   );
 }

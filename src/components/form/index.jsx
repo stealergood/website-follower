@@ -1,17 +1,19 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form"
 import PropTypes from "prop-types";
 import Cookies from 'js-cookie';
 // import PhoneInput from "react-phone-number-input";
+
+const formatter = new Intl.NumberFormat('id-ID', {
+  style: 'currency',
+  currency: 'IDR',
+});
 
 const formatRupiah = (number) => {
   if (number === null || isNaN(number)) {
     return '';
   }
 
-  const formatter = new Intl.NumberFormat('id-ID', {
-    style: 'currency',
-    currency: 'IDR',
-  });
   return formatter.format(number);
 };
 
@@ -20,10 +22,6 @@ const fee = (number) => {
     return '';
   }
 
-  const formatter = new Intl.NumberFormat('id-ID', {
-    style: 'currency',
-    currency: 'IDR',
-  });
   return formatter.format(number * 0.05);
 };
 
@@ -32,10 +30,6 @@ const total = (number, fee) => {
     return '';
   }
 
-  const formatter = new Intl.NumberFormat('id-ID', {
-    style: 'currency',
-    currency: 'IDR',
-  });
   return formatter.format(number + fee);
 };
 
@@ -47,8 +41,10 @@ export default function Form({theme, buttonBuy}) {
   };
 
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const [ isLoading, setIsLoading ] = useState(false);
 
   const onSubmit = async () => {
+    setIsLoading(true);
     const order_id = `TRX-${Date.now()}`;
   
     const parameters = {
@@ -69,14 +65,17 @@ export default function Form({theme, buttonBuy}) {
       });
   
       const response = await payload.json();
-      const { token, redirect_url } = response.result;
+      const { redirect_url } = response.result;
   
       Cookies.set('order_id', order_id);
   
       // Open the redirect_url in a new tab
       window.open(redirect_url, '_blank', { expires: 1 });
+      setIsLoading(false);
     } catch (error) {
       console.error("Error submitting the form:", error);
+      alert("Error submitting the form!");
+      setIsLoading(false);
       // Handle the error appropriately
     }
   };
@@ -85,7 +84,7 @@ export default function Form({theme, buttonBuy}) {
 
   return (
     <div className="w-full min-h-screen p-10">
-      <div className="w-full flex flex-col items-center md:items-start md:flex-row gap-3">
+      <div id="form" className="w-full flex flex-col items-center md:items-start md:flex-row gap-3">
         <div className="w-full h-full rounded-lg bg-white p-10">
           <div className="flex flex-col gap-10">
             <div>
@@ -148,9 +147,10 @@ export default function Form({theme, buttonBuy}) {
               }
             }}
             type="submit"
-            className={`w-full h-16 rounded-lg text-white font-bold ${theme === 'light' ? 'bg-navlight' : 'bg-navdark'}`}
+            className={`w-full h-16 rounded-lg text-white font-bold ${theme === 'light' ? 'bg-navlight' : 'bg-navdark'} hover:bg-opacity-75`}
+            disabled={isLoading}
           >
-            CHECKOUT
+            {isLoading ? <span className="loading loading-spinner loading-md"></span> : "CHECKOUT"}
           </button>
         </div>
       </div>

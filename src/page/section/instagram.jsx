@@ -45,6 +45,10 @@ export default function Instagram({theme, handleToggle}) {
 
   const handleBuy = (category) => {
     setButtonBuy(category);
+
+    const target = document.getElementById('form');
+
+    target.scrollIntoView({behavior: 'smooth', block: 'start'});
   }
   
   return (
