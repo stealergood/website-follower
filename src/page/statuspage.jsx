@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Cookies from "js-cookie";
 import PropTypes from "prop-types";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
@@ -31,8 +30,8 @@ export default function PaymentStatus({ theme, handleToggle }) {
   const [statusMessage, setStatusMessage] = useState(null);
 
   useEffect(() => {
-    const orderId = Cookies.get("order_id");
-    console.log(orderId);
+    const urlParams = new URLSearchParams(window.location.href);
+    const orderId = urlParams.get("order_id");
     fetchData(orderId)
       .then((message) => setStatusMessage(message))
       .catch((error) => {

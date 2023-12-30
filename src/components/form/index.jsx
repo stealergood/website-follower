@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form"
 import PropTypes from "prop-types";
-import Cookies from 'js-cookie';
 // import PhoneInput from "react-phone-number-input";
 
 const formatter = new Intl.NumberFormat('id-ID', {
@@ -66,9 +65,7 @@ export default function Form({theme, buttonBuy}) {
   
       const response = await payload.json();
       const { redirect_url } = response.result;
-  
-      Cookies.set('order_id', order_id);
-  
+    
       // Open the redirect_url in a new tab
       window.open(redirect_url, '_blank', { expires: 1 });
       setIsLoading(false);
