@@ -31,6 +31,7 @@ export default function PaymentStatus({ theme, handleToggle }) {
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.href);
+    console.log(urlParams);
     const orderId = urlParams.get("order_id");
     console.log(orderId);
     fetchData(orderId)
