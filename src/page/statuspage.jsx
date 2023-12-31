@@ -42,8 +42,6 @@ export default function PaymentStatus({ theme, handleToggle }) {
       });
   }, [order_id]);
 
-  console.log(statusMessage);
-
   if (statusMessage === "Transaction doesn't exist.") {
     return (
       <div className={`${theme === "light" ? "bg-slate-100" : "bg-gray-800"}`}>
