@@ -43,10 +43,10 @@ export default function Navbar({theme, handleToggle}) {
                   Layanan
                 </a>
                 <a
-                  href="#"
+                  href="/checkorder"
                   className={`inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium ${theme === 'light' ? 'text-gray-500': 'text-white'} hover:border-gray-300 hover:text-gray-700`}
                 >
-                  Blog
+                  Check Order
                 </a>
               </div>
               <div className="flex items-center  md:space-x-8">

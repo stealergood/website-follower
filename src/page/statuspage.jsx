@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import { PaymentSuccess, PaymentFailed } from "../components/utils/importhandle";
 
-async function fetchData(orderId) {
+async function fetchData(order_id) {
   const parameter = {
-    order_id: orderId
+    order_id: order_id,
   };
 
   const payload = await fetch("https://backend-follower-f8a6bb63a58e.herokuapp.com/api/v1/payment/status", {
@@ -28,19 +29,16 @@ export default function PaymentStatus({ theme, handleToggle }) {
   };
 
   const [statusMessage, setStatusMessage] = useState(null);
+  const { order_id } = useParams();
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.href);
-    console.log(urlParams);
-    const orderId = urlParams.get("order_id");
-    console.log(orderId);
-    fetchData(orderId)
+    fetchData(order_id)
       .then((message) => setStatusMessage(message))
       .catch((error) => {
         console.error("Error fetching data:", error);
         setStatusMessage("Error");
       });
-  }, []);
+  }, [order_id]);
 
   console.log(statusMessage);
 
