@@ -30,7 +30,7 @@ export default function Navbar({theme, handleToggle}) {
                 </Disclosure.Button>
               </div>
               <Link to={"/"} className="flex justify-between flex-shrink-0 items-center w-40 md:w-52">
-                <Logo fill={`${theme === 'light' ? '#7B66FF' : '#5FBDFF'}`} className="w-14 h-14 md:w-16 md:h-16"/>
+                <Logo fill={`${theme === 'light' ? '#7B66FF' : '#5FBDFF'}`} className="w-12 h-12 md:w-16 md:h-16"/>
                 <h1 className={`${theme === 'light' ? 'text-navlight' : 'text-navdark'} hidden md:flex font-sans font-bold md:text-2xl`}>The Sosmed</h1>
               </Link>
             </div>
@@ -49,14 +49,14 @@ export default function Navbar({theme, handleToggle}) {
                   Blog
                 </a>
               </div>
-              <div className="flex items-center md:space-x-8">
-                <div className="flex-shrink-0">
+              <div className="flex items-center  md:space-x-8">
+                <div className="flex">
                   <button
                     type="button"
-                    className={`${theme === 'light' ? 'bg-navlight':'bg-navdark'} relative inline-flex items-center space-x-2 rounded-xl border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}
+                    className={`${theme === 'light' ? 'bg-navlight':'bg-navdark'} inline-flex items-center rounded-xl border border-transparent space-x-1 md:space-x-2 px-3 md:px-4 py-1 md:py-3 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}
                   >
-                    <Whatsapp width="25" height="25" />
-                    <span>Kontak Saya</span>
+                    <Whatsapp className="md:w-8 md:h-8 w-5 h-5" />
+                    <span className="text-xs md:text-base">Kontak Saya</span>
                   </button>
                 </div>
                 <div className="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">

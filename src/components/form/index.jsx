@@ -82,30 +82,30 @@ export default function Form({theme, buttonBuy}) {
   return (
     <div className="w-full min-h-screen p-10">
       <div id="form" className="w-full flex flex-col items-center md:items-start md:flex-row gap-3">
-        <div className="w-full h-full rounded-lg bg-white p-10">
+        <div className="w-full h-full rounded-lg bg-white p-5 md:p-10">
           <div className="flex flex-col gap-10">
             <div>
               <div className="mb-5">
-                <h1 className="text-2xl text-slate-600 font-bold">Target</h1>
-                <p className="text-slate-400">Pastikan username/link yang Anda input sudah benar dan akun tidak berstatus private.</p>
+                <h1 className="text-xl md:text-2xl text-slate-600 font-bold">Target</h1>
+                <p className="text-sm md:text-base text-slate-400">Pastikan username/link yang Anda input sudah benar dan akun tidak berstatus private.</p>
               </div>
-              <input {...register('target', { required: true })} type="text" placeholder="Target Username @" className="h-12 text-lg w-full border-2 rounded-md bg-slate-100 border-gray-200 outline-none p-2"/>
+              <input {...register('target', { required: true })} type="text" placeholder="Target Username @" className="h-12 md:text-lg w-full border-2 rounded-md bg-slate-100 border-gray-200 outline-none p-2"/>
               {errors.target && <span className="text-red-500">Harap isi kolom ini!</span>}
             </div>
             <div>
               <div className="mb-5">
-                <h1 className="text-2xl text-slate-600 font-bold">Informasi Kontak</h1>
-                <p className="text-slate-400">Pastikan anda mengisi seluruh informasi kontak.</p>
+                <h1 className="text-xl md:text-2xl text-slate-600 font-bold">Informasi Kontak</h1>
+                <p className="text-sm md:text-base text-slate-400">Pastikan anda mengisi seluruh informasi kontak.</p>
               </div>
-              <input {...register('fullname', { required: true })} type="text" placeholder="Nama Lengkap" className="h-12 w-full text-lg border-2 rounded-md bg-slate-100 border-gray-200 outline-none p-2"/>
+              <input {...register('fullname', { required: true })} type="text" placeholder="Nama Lengkap" className="h-12 w-full md:text-lg border-2 rounded-md bg-slate-100 border-gray-200 outline-none p-2"/>
               {errors.fullname && <span className="text-red-500">Harap isi kolom ini!</span>}
-              <div className="flex gap-5 mt-5">
+              <div className="flex-col space-y-5 md:space-y-0 md:flex md:gap-5 mt-5">
                 <div className="w-full">  
-                  <input {...register('email', { required: true })} type="text" placeholder="Alamat Email" className="h-12 w-full text-lg border-2 rounded-md bg-slate-100 border-gray-200 outline-none p-2"/>
+                  <input {...register('email', { required: true })} type="text" placeholder="Alamat Email" className="h-12 w-full md:text-lg border-2 rounded-md bg-slate-100 border-gray-200 outline-none p-2"/>
                   {errors.email && <span className="text-red-500">Harap isi kolom ini!</span>}
                 </div>
                 <div className="w-full">
-                  <input {...register('phone', { required: true })} type="text" placeholder="No. Whatsapp" className="h-12 w-full text-lg border-2 rounded-md bg-slate-100 border-gray-200 outline-none p-2"/>
+                  <input {...register('phone', { required: true })} type="text" placeholder="No. Whatsapp" className="h-12 w-full md:text-lg border-2 rounded-md bg-slate-100 border-gray-200 outline-none p-2"/>
                   {errors.phone && <span className="text-red-500">Harap isi kolom ini!</span>}
                 </div>
                 {/* <PhoneInput defaultCountry="ID" placeholder="No. Whatsapp" value={value} onChange={setValue} PhoneInputCountryFlag-height={1}/> */}
@@ -119,20 +119,20 @@ export default function Form({theme, buttonBuy}) {
           </div>
           <div className="w-full h-fit rounded-lg bg-white flex flex-col gap-1 p-3">
             <div className="flex justify-between border-b">
-              <p className="text-lg font-medium text-slate-600">Produk: </p>
-              <p className="text-lg font-bold text-slate-600">{buttonBuy.name}</p>
+              <p className="md:text-lg font-medium text-slate-600">Produk: </p>
+              <p className="md:text-lg font-bold text-slate-600">{buttonBuy.name}</p>
             </div>
             <div className="flex justify-between border-b">
-              <p className="text-lg font-medium text-slate-600 border-b">Jumlah: </p>
-              <p className="text-lg font-bold text-slate-600">{formatRupiah(buttonBuy.price)}</p>
+              <p className="md:text-lg font-medium text-slate-600 border-b">Jumlah: </p>
+              <p className="md:text-lg font-bold text-slate-600">{formatRupiah(buttonBuy.price)}</p>
             </div>
             <div className="flex justify-between border-b">
-              <p className="text-lg font-medium text-slate-600 border-b">Fee: </p>
-              <p className="text-lg font-bold text-slate-600">{fee(buttonBuy.price)}</p>
+              <p className="md:text-lg font-medium text-slate-600 border-b">Fee: </p>
+              <p className="md:text-lg font-bold text-slate-600">{fee(buttonBuy.price)}</p>
             </div>
             <div className="flex justify-between border-b">
-              <p className="text-lg font-medium text-slate-600">Total: </p>
-              <p className="text-lg font-bold text-slate-600">{total(buttonBuy.price, buttonBuy.price * 0.05)}</p>
+              <p className="md:text-lg font-medium text-slate-600">Total: </p>
+              <p className="md:text-lg font-bold text-slate-600">{total(buttonBuy.price, buttonBuy.price * 0.05)}</p>
             </div>
           </div>
           <button
