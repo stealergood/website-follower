@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
@@ -29,7 +29,9 @@ export default function PaymentStatus({ theme, handleToggle }) {
   };
 
   const [statusMessage, setStatusMessage] = useState(null);
-  const { order_id } = useParams();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const order_id = searchParams.get("order_id");
 
   useEffect(() => {
     fetchData(order_id)

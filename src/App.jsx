@@ -44,7 +44,7 @@ function App() {
         <Route path="/tiktok" element={<Tiktok theme={theme} handleToggle={handleToggle} />} />
         <Route path="/youtube" element={<Youtube theme={theme} handleToggle={handleToggle} />} />
         <Route path="/checkorder" element={<OrderStatus theme={theme} handleToggle={handleToggle} />} />
-        <Route path="/status/:order_id" element={<PaymentStatus theme={theme} handleToggle={handleToggle} />} />
+        <Route path="/status" element={<PaymentStatus theme={theme} handleToggle={handleToggle} />} />
       </Routes>
     </Router>
   )
