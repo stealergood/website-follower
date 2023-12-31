@@ -46,7 +46,7 @@ export default function PaymentStatus({ theme, handleToggle }) {
     return (
       <div className={`${theme === "light" ? "bg-slate-100" : "bg-gray-800"}`}>
         <Navbar theme={theme} handleToggle={handleToggle} />
-        <div className={`w-full h-screen ${theme === "light" ? "bg-slate-200" : "bg-gray-600"} flex justify-center items-center`}>
+        <div className={`w-full h-screen ${theme === "light" ? "bg-slate-200" : "bg-gray-600"} flex justify-center md:items-center`}>
           <PaymentFailed theme={theme} />
         </div>
         <Footer theme={theme} />
@@ -56,7 +56,7 @@ export default function PaymentStatus({ theme, handleToggle }) {
     return (
       <div className={`${theme === "light" ? "bg-slate-100" : "bg-gray-800"}`}>
         <Navbar theme={theme} handleToggle={handleToggle} />
-        <div className={`w-full h-screen ${theme === "light" ? "bg-slate-200" : "bg-gray-600"} flex justify-center items-center`}>
+        <div className={`w-full h-screen ${theme === "light" ? "bg-slate-200" : "bg-gray-600"} flex justify-center md:items-center`}>
           <PaymentSuccess theme={theme} />
         </div>
         <Footer theme={theme} />
@@ -68,7 +68,7 @@ export default function PaymentStatus({ theme, handleToggle }) {
   return (
     <div className={`${theme === "light" ? "bg-slate-100" : "bg-gray-800"}`}>
     <Navbar theme={theme} handleToggle={handleToggle} />
-    <div className={`w-full h-screen ${theme === "light" ? "bg-slate-200" : "bg-gray-600"} flex justify-center items-center`}>
+    <div className={`w-full h-screen ${theme === "light" ? "bg-slate-200" : "bg-gray-600"} flex justify-center md:items-center`}>
       <div className="w-96 h-96 shadow-lg rounded-xl bg-white flex-col flex justify-center items-center">
         <span className="loading loading-spinner loading-lg"></span>
       </div>
