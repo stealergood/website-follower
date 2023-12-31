@@ -32,6 +32,7 @@ export default function PaymentStatus({ theme, handleToggle }) {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.href);
     const orderId = urlParams.get("order_id");
+    console.log(orderId);
     fetchData(orderId)
       .then((message) => setStatusMessage(message))
       .catch((error) => {
@@ -39,6 +40,8 @@ export default function PaymentStatus({ theme, handleToggle }) {
         setStatusMessage("Error");
       });
   }, []);
+
+  console.log(statusMessage);
 
   if (statusMessage === "Transaction doesn't exist.") {
     return (

@@ -67,7 +67,7 @@ export default function Form({theme, buttonBuy}) {
       const { redirect_url } = response.result;
     
       // Open the redirect_url in a new tab
-      window.open(redirect_url, '_blank', { expires: 1 });
+      window.open(redirect_url);
       setIsLoading(false);
     } catch (error) {
       console.error("Error submitting the form:", error);
